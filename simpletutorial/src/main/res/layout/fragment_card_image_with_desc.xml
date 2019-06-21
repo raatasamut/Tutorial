@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/fragment_card_image_with_desc_cn"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@android:color/white"
+              android:paddingTop="@dimen/activity_horizontal_margin"
+              android:paddingBottom="@dimen/cell_xh_padding">
+
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#e4effd">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            <ImageView
+                    android:id="@+id/fragment_card_image_with_desc_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:scaleType="fitEnd"
+                    android:layout_marginRight="@dimen/cell_h_padding"
+                    android:layout_marginLeft="@dimen/cell_h_padding"/>
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/white"
+                    android:layout_weight="0.7"
+                    android:orientation="vertical">
+
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/activity_vertical_margin">
+
+                    <TextView
+                            android:id="@+id/fragment_card_image_with_desc_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/default_title"/>
+
+                    <TextView
+                            android:id="@+id/fragment_card_image_with_desc_sub_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:layout_gravity="end"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/default_title"/>
+
+                </LinearLayout>
+
+                <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <TextView
+                            android:id="@+id/fragment_card_image_with_desc_desc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/black"
+                            android:textSize="@dimen/default_desc"
+                            android:paddingBottom="@dimen/activity_vertical_margin"
+                            android:paddingRight="@dimen/activity_vertical_margin"
+                            android:paddingLeft="@dimen/activity_vertical_margin"/>
+
+                </ScrollView>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

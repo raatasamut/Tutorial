@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+>
+
+    <TextView
+            android:id="@+id/wemo_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/activity_horizontal_margin"
+            android:paddingEnd="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/cell_h_padding"
+            android:paddingTop="@dimen/cell_xh_padding"
+            android:textSize="@dimen/default_desc"
+            android:textStyle="bold"
+            android:textAlignment="center"/>
+
+    <LinearLayout
+            android:id="@+id/wemo_header_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+    </LinearLayout>
+
+    <ImageView
+            android:id="@+id/wemo_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"/>
+
+    <LinearLayout
+            android:id="@+id/wemo_footer_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:id="@+id/wemo_footer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:textSize="@dimen/default_desc"
+                android:textStyle="bold"
+                android:textAlignment="center" android:layout_marginBottom="@dimen/cell_xh_padding"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>
