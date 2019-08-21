@@ -2,7 +2,7 @@ package com.appimake.simpletutorial.view
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import com.appimake.simpletutorial.Tutorial
 import com.appimake.simpletutorial.models.SimpleModel
 import kotlinx.android.synthetic.main.fragment_simple_tutorial.view.*
 
-class SimpleModelFragment : Fragment() {
+class SimpleModelFragment : androidx.fragment.app.Fragment() {
     private lateinit var rootView: View
 
     override fun onCreateView(

@@ -1,7 +1,6 @@
 package com.appimake.simpletutorial.view
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import com.appimake.simpletutorial.models.CardImageWithDescModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_card_image_with_desc.view.*
 
-class CardImageWithDescFragment : Fragment() {
+class CardImageWithDescFragment : androidx.fragment.app.Fragment() {
     private lateinit var rootView: View
 
     override fun onCreateView(
@@ -31,7 +30,7 @@ class CardImageWithDescFragment : Fragment() {
     private fun CardImageWithDescModel(obj: CardImageWithDescModel) {
 
         rootView.fragment_card_image_with_desc_image.apply {
-            when(obj.image){
+            when (obj.image) {
                 is String -> Glide.with(this).load(obj.image).into(this)
             }
         }

@@ -9,7 +9,7 @@
               android:paddingTop="@dimen/activity_horizontal_margin"
               android:paddingBottom="@dimen/cell_xh_padding">
 
-    <android.support.v7.widget.CardView
+    <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/activity_horizontal_margin"
@@ -82,5 +82,5 @@
 
             </LinearLayout>
         </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
