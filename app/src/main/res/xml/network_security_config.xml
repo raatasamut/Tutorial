@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">ncb.co.th</domain>
+        <domain includeSubdomains="true">google.co.th</domain>
+        <domain includeSubdomains="true">app.ar.co.th</domain>
+        <domain includeSubdomains="true">appimake.com</domain>
+        <domain includeSubdomains="true">203.148.188.17</domain>
+    </domain-config>
+</network-security-config>

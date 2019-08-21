@@ -37,6 +37,17 @@ class MainActivity : AppCompatActivity() {
         Tutorial.addPageList(ArrayList<TutorialModel>().apply {
             add(
                 CardImageWithDescModel(
+                    ImageModel(
+                        "base64URL",
+                        "http://203.148.188.17:9904/report/pic/14048472-e9a2-47e2-ac02-6d76fb21745f"
+                    ),
+                    "Title",
+                    "Sub",
+                    "DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC DESC"
+                )
+            )
+            add(
+                CardImageWithDescModel(
                     "https://static1.squarespace.com/static/59bc2760ccc5c50c96e69ac8/t/5a99ab6953450a7571906336/1520020362808/KWCF+Belonging+Report+2014.png",
                     "Title",
                     "Sub",
