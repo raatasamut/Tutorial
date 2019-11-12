@@ -4,18 +4,12 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.viewpager.widget.ViewPager
-import androidx.appcompat.app.AppCompatActivity
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
 import com.appimake.simpletutorial.models.CardImageWithDescModel
-import com.appimake.simpletutorial.models.SimpleModel
 import com.appimake.simpletutorial.models.WeMoStyleModel
 import com.appimake.simpletutorial.util.dpToPx
 import com.appimake.simpletutorial.view.CardImageWithDescFragment
@@ -23,7 +17,6 @@ import com.appimake.simpletutorial.view.SimpleModelFragment
 import com.appimake.simpletutorial.view.WeMoModelFragment
 import kotlinx.android.synthetic.main.activity_simple_tutorial.*
 import kotlinx.android.synthetic.main.activity_simple_tutorial.view.*
-import kotlinx.android.synthetic.main.fragment_simple_tutorial.view.*
 
 
 class SimpleTutorial : AppCompatActivity() {
@@ -42,26 +35,32 @@ class SimpleTutorial : AppCompatActivity() {
 
         setIndicator(0)
 
-        container.addOnPageChangeListener(object : androidx.viewpager.widget.ViewPager.OnPageChangeListener {
+        container.addOnPageChangeListener(object :
+            androidx.viewpager.widget.ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {}
 
-            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+            }
 
             override fun onPageSelected(position: Int) {
                 setIndicator(position)
 
-                if(Tutorial.pageList.size -1 == position){
-                    container_close.visibility =  View.VISIBLE
-                    container_cv_close.visibility =  View.VISIBLE
-                    container_skip.visibility =  View.INVISIBLE
+                if (Tutorial.pageList.size - 1 == position) {
+                    container_close.visibility = View.VISIBLE
+                    container_cv_close.visibility = View.VISIBLE
+                    container_skip.visibility = View.INVISIBLE
                     Tutorial.closeView?.let {
-                        container_cn_close.visibility =  View.INVISIBLE
+                        container_cn_close.visibility = View.INVISIBLE
                     }
                 } else {
-                    container_skip.visibility =  View.VISIBLE
-                    container_close.visibility =  View.INVISIBLE
-                    container_cv_close.visibility =  View.INVISIBLE
-                    container_cn_close.visibility =  View.VISIBLE
+                    container_skip.visibility = View.VISIBLE
+                    container_close.visibility = View.INVISIBLE
+                    container_cv_close.visibility = View.INVISIBLE
+                    container_cn_close.visibility = View.VISIBLE
                 }
             }
         })
@@ -75,13 +74,23 @@ class SimpleTutorial : AppCompatActivity() {
         }
     }
 
-    private fun setOption(){
+    private fun setOption() {
 
         header_cn.apply {
             Tutorial.barTitle?.let {
                 this.visibility = View.VISIBLE
                 this.header_cn_title.text = it
+            }
+            Tutorial.barIconLeft?.let {
+                this.visibility = View.VISIBLE
+                this.header_cn_ic_left.setImageDrawable(it.icon)
+                this.header_cn_ic_left.setOnClickListener(it.onClickListener)
+            }
 
+            Tutorial.barIconRight?.let {
+                this.visibility = View.VISIBLE
+                this.header_cn_ic_right.setImageDrawable(it.icon)
+                this.header_cn_ic_right.setOnClickListener(it.onClickListener)
             }
 
             Tutorial.barHexColor?.let {
@@ -94,7 +103,7 @@ class SimpleTutorial : AppCompatActivity() {
         main_content.apply {
             Tutorial.background?.let {
 
-                when(it){
+                when (it) {
                     is Int -> setBackgroundColor(it)
                     is Drawable -> background = it
                 }
@@ -146,13 +155,20 @@ class SimpleTutorial : AppCompatActivity() {
         Tutorial.pageList.forEachIndexed { index, _ ->
             val drawable = GradientDrawable()
 
-            drawable.setColor(if (index == position) Color.parseColor(Tutorial.indicatorSelectHex) else Color.parseColor(Tutorial.indicatorDeselectHex))
+            drawable.setColor(
+                if (index == position) Color.parseColor(Tutorial.indicatorSelectHex) else Color.parseColor(
+                    Tutorial.indicatorDeselectHex
+                )
+            )
             drawable.shape = GradientDrawable.OVAL
             drawable.setSize(dpToPx(6f).toInt(), dpToPx(6f).toInt())
 
             val iv = ImageView(this)
             iv.setImageDrawable(drawable)
-            val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val lp = LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
             lp.marginStart = dpToPx(4f).toInt()
             lp.marginEnd = dpToPx(4f).toInt()
             iv.layoutParams = lp
@@ -161,10 +177,11 @@ class SimpleTutorial : AppCompatActivity() {
         }
     }
 
-    inner class SectionsPagerAdapter(fm: androidx.fragment.app.FragmentManager) : androidx.fragment.app.FragmentPagerAdapter(fm) {
+    inner class SectionsPagerAdapter(fm: androidx.fragment.app.FragmentManager) :
+        androidx.fragment.app.FragmentPagerAdapter(fm) {
 
         override fun getItem(position: Int): androidx.fragment.app.Fragment {
-            when(Tutorial.pageList.get(position)){
+            when (Tutorial.pageList.get(position)) {
                 is WeMoStyleModel -> return WeMoModelFragment.newInstance(position)
                 is CardImageWithDescModel -> return CardImageWithDescFragment.newInstance(position)
                 else -> return SimpleModelFragment.newInstance(position)

@@ -2,11 +2,15 @@ package com.appimake.tutorial
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.core.content.res.ResourcesCompat
+import android.view.View
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import android.text.Layout
-import android.widget.*
+import androidx.core.content.res.ResourcesCompat
 import com.appimake.simpletutorial.Tutorial
+import com.appimake.simpletutorial.TutorialButton
 import com.appimake.simpletutorial.models.*
 import com.appimake.simpletutorial.util.dpToPx
 import kotlinx.android.synthetic.main.activity_main.*
@@ -104,7 +108,19 @@ class MainActivity : AppCompatActivity() {
             closeView = btClose,
             skipText = "SKIP",
             barTitle = "TITLE",
-            barHexColor = "#00FFAA"
+            barHexColor = "#00FFAA",
+            barIconLeft = TutorialButton(
+                resources.getDrawable(R.drawable.ic_launcher_background, null),
+                View.OnClickListener {
+                    Toast.makeText(this, "Click: LEFT", Toast.LENGTH_SHORT).show()
+                }
+            ),
+            barIconRight = TutorialButton(
+                resources.getDrawable(R.drawable.ic_launcher_background, null),
+                View.OnClickListener {
+                    Toast.makeText(this, "Click: RIGHT", Toast.LENGTH_SHORT).show()
+                }
+            )
         ).show(this)
     }
 }

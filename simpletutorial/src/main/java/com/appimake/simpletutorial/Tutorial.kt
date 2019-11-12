@@ -5,8 +5,14 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.Drawable
 import android.view.View
 import com.appimake.simpletutorial.models.TutorialModel
+
+data class TutorialButton(
+    val icon: Drawable,
+    val onClickListener: View.OnClickListener
+)
 
 @SuppressLint("StaticFieldLeak")
 object Tutorial {
@@ -17,6 +23,8 @@ object Tutorial {
     var fontSize: Float = 18f
     var fontColor: Int = Color.WHITE
 
+    var barIconLeft: TutorialButton? = null
+    var barIconRight: TutorialButton? = null
     var barTitle: String? = null
     var barHexColor: String? = null
 
@@ -54,7 +62,9 @@ object Tutorial {
         closeView: View? = null,
         skipText: String? = null,
         barHexColor: String? = null,
-        barTitle: String? = null
+        barTitle: String? = null,
+        barIconLeft: TutorialButton? = null,
+        barIconRight: TutorialButton? = null
     ): Tutorial {
         this.fontTypeFace = fontTypeFace
         this.fontSize = fontSize
@@ -67,6 +77,8 @@ object Tutorial {
         this.skipText = skipText
         this.barHexColor = barHexColor
         this.barTitle = barTitle
+        this.barIconLeft = barIconLeft
+        this.barIconRight = barIconRight
         return this
     }
 

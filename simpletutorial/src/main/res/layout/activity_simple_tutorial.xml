@@ -16,15 +16,26 @@
             android:orientation="horizontal"
             android:background="@android:color/darker_gray"
             android:gravity="center_vertical"
-            android:padding="@dimen/app_padding"
             android:visibility="gone">
+
+        <ImageView
+                android:id="@+id/header_cn_ic_left"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:padding="@dimen/app_menu_padding" />
         <TextView
                 android:id="@+id/header_cn_title"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="TITLE"
+                android:layout_weight="1"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/default_title" android:gravity="center"/>
+
+        <ImageView
+                android:id="@+id/header_cn_ic_right"
+                android:layout_width="?android:attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
+                android:padding="@dimen/app_menu_padding" />
     </LinearLayout>
 
     <RelativeLayout
